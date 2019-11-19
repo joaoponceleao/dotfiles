@@ -18,10 +18,12 @@ if [ "$system_type" = "Darwin" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
-  if [ -f "$HOME/.Brewfile" ]; then
+  if [ -f "$HOME/.dependencies/Brewfile" ]; then
     echo "Updating homebrew bundle"
+    cd .dependencies
     brew bundle --global
     brew bundle cleanup --global --force
+    cd ..
   fi
   brew update
   brew upgrade
@@ -223,6 +225,15 @@ defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 
 # Randomize port on launch
 defaults write org.m0k.transmission RandomPort -bool true
+
+# Code
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.jetbrains.pycharm ApplePressAndHoldEnabled -bool false
+defaults write com.jetbrains.datagrip ApplePressAndHoldEnabled -bool false
+defaults write com.github.atom ApplePressAndHoldEnabled -bool false
+defaults write com.googlecode.iterm2 ApplePressAndHoldEnabled -bool false
+defaults write com.apple.Terminal ApplePressAndHoldEnabled -bool false
+
 
 # Kill affected apps
 for app in "Activity Monitor" "cfprefsd" "Finder" "Safari"  \

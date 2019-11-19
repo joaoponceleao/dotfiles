@@ -166,6 +166,9 @@ bindkey -v
 #   fi
 # fi
 
+GPG_TTY=$(tty)
+export GPG_TTY
+
 # ZSH Configuration
 unsetopt flow_control case_glob
 setopt AUTO_NAME_DIRS CDABLE_VARS

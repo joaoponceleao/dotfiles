@@ -147,3 +147,4 @@ ENV/
 
 # VSCode
 .vscode
+.history

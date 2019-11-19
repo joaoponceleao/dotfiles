@@ -80,6 +80,7 @@ brew "libosmium"
 brew "postgresql", restart_service: true
 brew "lnav"
 brew "lz4"
+brew "mackup"
 brew "mailhog"
 brew "mas"
 brew "maven"
