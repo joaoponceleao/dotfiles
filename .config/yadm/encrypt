@@ -1,0 +1,5 @@
+.env_keys
+.pgpass
+.ssh/*
+.config/rclone/rclone.conf
+.api_keys.json

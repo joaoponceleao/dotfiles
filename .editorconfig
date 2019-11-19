@@ -1,0 +1,28 @@
+# editorconfig
+root = true
+
+[*]
+indent_style = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{py,rst,ini}]
+indent_size = 4
+
+[*.{js,json,yml,scss,css}]
+indent_size = 4
+indent = 4
+multi_line_output = 4
+
+[*{.html,scss,css,ejs}]
+indent_size = 2
+indent = 2
+multi_line_output = 2
+
+[Makefile]
+indent_style = tab

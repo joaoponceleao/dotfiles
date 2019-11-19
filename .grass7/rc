@@ -1,0 +1,4 @@
+MAPSET: uvoids
+GISDBASE: /Users/joao/Documents/grassdata
+LOCATION_NAME: uvoids
+GUI: wxpython

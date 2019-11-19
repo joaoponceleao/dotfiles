@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - udst
+  - defaults
+disallow:
+  - anaconda
+changeps1: false
+channel_priority: flexible
+auto_activate_base: false

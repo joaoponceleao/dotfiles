@@ -1,0 +1,28 @@
+set editing-mode vi
+set keymap vi
+set input-meta on
+set output-meta on
+set convert-meta off
+"\e[1;5D": backward-word
+"\e[1;5C": forward-word
+
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set skip-completed-text on
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Use typed text for search (intelligent Up/Down behaviour)
+"\e[B": history-search-forward
+"\e[A": history-search-backward
+
+# Do not autocomplete hidden files unless pattern explicitly begins with a dot
+set match-hidden-files off
+
+# Show all autocomplete results at once / ask if over 100
+set page-completions off
+set completion-query-items 100
+
+set visible-stats on
+
