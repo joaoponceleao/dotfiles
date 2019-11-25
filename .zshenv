@@ -7,6 +7,7 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH" # issues with conda getenv and pyenv
 export PATH="/Library/TeX/texbin:$PATH"
 # export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PRO_BASE="$HOME/Dev"
 
 # GRASS
 export GRASS_VER="7.4"
@@ -55,8 +56,8 @@ export GREP_OPTIONS="--color=auto"
 export BROWSER="open"
 
 export BYOBU_PREFIX=/usr/local
-export BERKELEYDB_DIR=$(brew --cellar)/berkeley-db/6.2.23
-export YES_I_HAVE_THE_RIGHT_TO_USE_THIS_BERKELEY_DB_VERSION=yes
+# export BERKELEYDB_DIR=$(brew --cellar)/berkeley-db/6.2.23
+# export YES_I_HAVE_THE_RIGHT_TO_USE_THIS_BERKELEY_DB_VERSION=yes
 export ARCHFLAGS="-arch x86_64"
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 export PYENV_ROOT="$HOME/.pyenv"

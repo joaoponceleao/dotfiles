@@ -1,0 +1,4 @@
+[record]
+command = /usr/local/bin/zsh -l
+stdin = yes
+

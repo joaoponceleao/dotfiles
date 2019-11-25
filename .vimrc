@@ -108,7 +108,7 @@ Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'zchee/deoplete-zsh'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
-Plug 'lambdalisue/vim-pyenv', { 'for': 'Python' } | Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'Shougo/neco-syntax'
 if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

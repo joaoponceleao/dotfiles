@@ -8,9 +8,6 @@ source $ZPLUG_HOME/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 zplug "mafredri/zsh-async", from:github
-# zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
-# zplug "sindresorhus/pure", use:pure.zsh, as:theme
-# zplug "yardnsm/blox-zsh-theme", from:github, as:theme
 zplug romkatv/powerlevel10k, as:theme, depth:1
 
 zplug "psprint/zsh-navigation-tools", from:github
@@ -39,18 +36,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-# Env configuration
-
-# BLOX_SEG__UPPER_LEFT=( host cwd git exec_time symbol )
-# BLOX_SEG__UPPER_RIGHT=( bgjobs pyenv virtualenv conda_block time )
-# BLOX_CONF__ONELINE=true
-# BLOX_CONF__PROMPT_PREFIX=""
-# BLOX_CONF__BLOCK_PREFIX=""
-# BLOX_CONF__BLOCK_SUFFIX=""
-# BLOX_BLOCK__SYMBOL_SYMBOL="λ"
-# BLOX_BLOCK__SYMBOL_EXIT_SYMBOL="λ"
-# BLOX_BLOCK__EXEC_TIME_MIN_ELAPSED="10"
 
 # FZF color scheme
 _gen_fzf_default_opts() {
@@ -101,6 +86,11 @@ fpath=(/usr/local/share/zsh/site-functions $fpath)
 
 autoload -Uz promptinit
 
+# extra bash completions
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+source $HOME/.gita-completion.bash
+
 # Pyenv + nodenv
 if which pyenv > /dev/null; then
     eval "$(pyenv init - zsh)"
@@ -147,24 +137,6 @@ export LSCOLORS="exfxcxdxbxGxDxabagacad"
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
 
 bindkey -v
-# SSH
-# if [ $(ssh-add -l | grep -c "The agent has no identities." ) -eq 1 ]; then
-#   if [[ "$(uname -s)" == "Darwin" ]]; then
-#     ssh-add -k
-#   fi
-# fi
-
-# if [ -f ~/.ssh/id_rsa ]; then
-#   if [ $(ssh-add -l | grep -c ".ssh/id_rsa" ) -eq 0 ]; then
-#     ssh-add ~/.ssh/id_rsa
-#   fi
-# fi
-
-# if [ -f ~/.ssh/id_dsa ]; then
-#   if [ $(ssh-add -L | grep -c ".ssh/id_dsa" ) -eq 0 ]; then
-#     ssh-add ~/.ssh/id_dsa
-#   fi
-# fi
 
 GPG_TTY=$(tty)
 export GPG_TTY
@@ -441,24 +413,6 @@ fd() {
   cd "$dir"
 }
 
-# cf - fuzzy cd from anywhere
-# ex: cf word1 word2 ... (even part of a file name)
-cf() {
-  local file
-
-  file="$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1)"
-
-  if [[ -n $file ]]
-  then
-     if [[ -d $file ]]
-     then
-        cd -- $file
-     else
-        cd -- ${file:h}
-     fi
-  fi
-}
-
 # interactive cd
 function cd() {
     if [[ "$#" != 0 ]]; then
@@ -483,25 +437,6 @@ function cd() {
 # fh - repeat history
 fh() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
-}
-
-# fzf autojump
-j() {
-    if [[ "$#" -ne 0 ]]; then
-        cd $(autojump $@)
-        return
-    fi
-    cd "$(autojump -s | sed '/_____/Q; s/^[0-9,.:]*\s*//' |  fzf --height 40% --reverse --inline-info)"
-}
-
-# preview
-fp() {
-    fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
-        echo {} is a binary file ||
-        (highlight -O ansi -l {} ||
-        coderay {} ||
-        rougify {} ||
-        cat {}) 2> /dev/null | head -500'
 }
 
 # tree

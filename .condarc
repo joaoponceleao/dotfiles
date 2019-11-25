@@ -2,7 +2,7 @@ channels:
   - conda-forge
   - udst
   - defaults
-  - conda-forge/label/beta
+  - spyder-ide
 disallow:
   - anaconda
 changeps1: false
