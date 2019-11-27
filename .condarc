@@ -1,8 +1,8 @@
 channels:
+  - spyder-ide
   - conda-forge
   - udst
   - defaults
-  - spyder-ide
 disallow:
   - anaconda
 changeps1: false

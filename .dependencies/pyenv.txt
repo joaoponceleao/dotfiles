@@ -1,7 +1,0 @@
-* system (set by /Users/joao/.pyenv/version)
-  2.7.16
-  2.7.16/envs/uvoids
-  3.7.4
-  3.7.4/envs/gna
-  gna
-  uvoids
