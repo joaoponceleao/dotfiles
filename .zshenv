@@ -70,5 +70,4 @@ export NODE_ENV="development" # can 'development', 'production', 'staging'
 export DJANGO_PORT="8000"
 export API_ROOT="/apiv1/"
 
-# OGR2OGR
 source "$HOME/.env_keys"

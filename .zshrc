@@ -388,6 +388,9 @@ x-python-apple(){
 x-cleanbrew(){
     rm -rf $(brew --cache)
 }
+x-postgresapp(){
+    export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+}
 
 # fzf aliases
 

@@ -409,9 +409,10 @@ let g:NERDTreeIgnore = [
 
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+let g:airline_section_y ='%{kite#statusline()}'
 let g:airline#extensions#default#layout = [
             \ [ 'a', 'b', 'c' ],
-            \ [ 'z', 'error', 'warning' ]
+            \ [ 'y', 'z', 'error', 'warning' ]
             \ ]
 let g:airline_theme='raven'
 let g:airline_detect_spell=0
@@ -672,6 +673,8 @@ set secure
 command! W w !sudo tee % > /dev/null
 
 " Completion
+let g:kite_snippets=0
+let g:kite_tab_complete=1
 
 let g:acp_enableAtStartup = 0
 let g:deoplete#enable_at_startup = 1
@@ -705,11 +708,11 @@ let g:deoplete#sources = get(g:, 'deoplete#sources', {})
 let g:deoplete#sources._ = ['buffer', 'member', 'file', 'omni']
 let g:deoplete#sources.javascript = ['buffer', 'member', 'file', 'ternjs']
 let g:deoplete#sources.jsx = ['buffer', 'member', 'file', 'ternjs']
-let g:deoplete#sources.python = [ 'buffer', 'member', 'file', 'jedi']
+" let g:deoplete#sources.python = [ 'buffer', 'member', 'file', 'jedi']
 
-let g:deoplete#sources#jedi#statement_length = 30
-let g:deoplete#sources#jedi#show_docstring = 1
-let g:deoplete#sources#jedi#short_types = 1
+" let g:deoplete#sources#jedi#statement_length = 30
+" let g:deoplete#sources#jedi#show_docstring = 1
+" let g:deoplete#sources#jedi#short_types = 1
 
 let g:deoplete#sources#ternjs#filetypes = [
 	\ 'jsx',
